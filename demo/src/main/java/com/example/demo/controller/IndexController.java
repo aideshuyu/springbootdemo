@@ -14,23 +14,21 @@ public class IndexController {
     @Resource
     public DataSource dataSource;
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public String index(){
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("index");
-//        return modelAndView;
-        Connection connection = null;
-        try{
-            connection = dataSource.getConnection();
-            System.out.println(connection.isClosed());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-
-        }
         return "index";
     }
 
+    @RequestMapping("/welcome")
+    public String gotoWelcom(){
+
+        return "pages/welcome";
+    }
+
+    @RequestMapping("/login")
+    public String goToLoginPage(){
+        return "login";
+    }
 
 
 }
